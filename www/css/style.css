@@ -1,6 +1,14 @@
 /* Empty. Add your own CSS if you like */
+body, .button {
+  font-family: 'Raleway', sans-serif;
+}
+
 .hidden {
   visibility: hidden;
+}
+
+p#currentAlarm {
+  font-weight: 700;
 }
 
 #landing {
@@ -11,4 +19,32 @@
   color: #8b0000;
   font-family: 'Permanent Marker', cursive;
   font-size: 60px;
+  background-color: #f8f8f8;
+}
+
+#travelDetails div.item-icon-right {
+  padding-right: 5px;
+}
+
+#travelDetails .button {
+  text-align: left;
+  background-color: #ffffff;
+}
+
+#travelDetails .button.button-block {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.button.button-positive,
+.button.button-positive.activated {
+  background-color: #8b0000;
+}
+
+#travelDetails .ng-binding {
+  padding-left: 12px;
+}
+
+#alarmSetText p {
+  margin-bottom: 10px;
 }

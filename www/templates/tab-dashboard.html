@@ -1,17 +1,21 @@
-<ion-view view-title="Dashboard">
-  <ion-content class="padding">
+<ion-view view-title="LEAVE">
+  <ion-content class="">
     <ion-list>
-
-      <ion-item id="alarm" class="item-remove-animate item-icon-right" type="item-text-wrap">
-        <h2> Current Alarm </h2>
-        <ul id='currentAlarm'>
-         <li>{{ dashboardMessage }}</li>
-       </ul>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+      <ion-item id="alarm"
+                class="item-remove-animate item-icon-right text-center"
+                type="item-text-wrap"
+                class="text-center">
+                <div ng-show="input.time != '' ">
+                  <p>You are going from <br>
+                    {{input.fromStation.Station}} <br>
+                    to {{input.toStation.Station}} <br>
+                    at {{input.time}}. </p>
+                  <p class="leaveMessage">{{ dashboardMessage }}</p>
+                </div>
       </ion-item>
 
       <ion-item id="travelPlan" class="item-remove-animate item-icon-right" type="item-text-wrap" href="#/tab/travelPlan">
-        <h2> Travel plan </h2>
+        <p>Create a new journey</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
 
