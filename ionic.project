@@ -1,6 +1,6 @@
 {
   "name": "smartAlarm-mobile",
-  "app_id": "9c6cf829",
+  "app_id": "cbcba9bb",
   "proxies": [
     {
       "path": "/api/user",

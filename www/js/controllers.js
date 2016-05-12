@@ -17,7 +17,7 @@ angular.module('smartAlarm.controllers', [])
   });
 })
 
-.controller('TravelPlanCtrl', function ($scope, StationList, GetTrip, $http, $rootScope) {
+.controller('TravelPlanCtrl', function ($scope, $cordovaLocalNotification, Notification, StationList, PostTrip, GetTrip, $http, $rootScope) {
 
   StationList.success(function(data) {
     $scope.stationNames = data;
@@ -27,23 +27,19 @@ angular.module('smartAlarm.controllers', [])
     var newTime     = trip.time.toString().substr(16, 5);
 
     var tripDetails = {'alarm':
-                      { 'from_station': trip.fromStation.ICS_Code,
-                        'to_station': trip.toStation.ICS_Code,
-                        'arrival_time': newTime,
-                        'alarm_offset': '0'
-                      }
-                    };
+                        { 'from_station': trip.fromStation.ICS_Code,
+                          'to_station'  : trip.toStation.ICS_Code,
+                          'arrival_time': newTime,
+                          'alarm_offset': '0'
+                        }
+                      };
 
-    GetTrip(tripDetails).success(function(data) {
-      return $http({
-        method: 'GET',
-        url: '/alarms',
-        contentType: 'application/json'
-      }).success(function(data){
+    PostTrip(tripDetails).success(function(data){
+      return GetTrip(data).success(function(data){
         $rootScope.timeToLeave = data.time_to_leave;
         $rootScope.alarmMessage ="Your alarm has been set for " + $rootScope.timeToLeave;
         $rootScope.dashboardMessage = "LEAVE at " + $rootScope.timeToLeave;
-        console.log($rootScope.alarmMessage);
+        new Notification(data);
       });
     });
   };
@@ -51,7 +47,7 @@ angular.module('smartAlarm.controllers', [])
 
 .controller('SignupCtrl', function($scope, $state, SignUp, $location) {
   $scope.signUp = function(email, password) {
-    var details = { 'email' : email,
+    var details = { 'email'   : email,
                     'password': password };
     new SignUp(details);
     $location.path('/tab/login');
