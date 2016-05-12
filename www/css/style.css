@@ -41,6 +41,9 @@ p#currentAlarm {
   background-color: #8b0000;
 }
 
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active,
+ion-tabs.tabs-color-active-positive .tab-item.active,
+ion-tabs.tabs-color-active-positive .tab-item.activated,
 .button.button-positive.button-clear {
   color: #8b0000;
 }
