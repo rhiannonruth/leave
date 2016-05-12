@@ -1,5 +1,5 @@
 /* Empty. Add your own CSS if you like */
-body, .button {
+body, .button, h1, h2, h3, h4 {
   font-family: 'Raleway', sans-serif;
 }
 
@@ -39,6 +39,10 @@ p#currentAlarm {
 .button.button-positive,
 .button.button-positive.activated {
   background-color: #8b0000;
+}
+
+.button.button-positive.button-clear {
+  color: #8b0000;
 }
 
 #travelDetails .ng-binding {
