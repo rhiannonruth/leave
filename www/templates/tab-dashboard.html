@@ -1,28 +1,31 @@
-<ion-view view-title="Dashboard">
-  <ion-content class="padding">
+<ion-view view-title="LEAVE">
+  <ion-content class="">
     <ion-list>
-
-      <ion-item id="alarm" class="item-remove-animate item-icon-right" type="item-text-wrap">
-        <h2> Current Alarm </h2>
-        <ul id='currentAlarm'>
-         <li>{{ dashboardMessage }}</li>
-       </ul>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+      <ion-item id="alarm"
+                class="item-remove-animate text-center"
+                type="item-text-wrap"
+                class="text-center">
+                <div ng-show="input.time != '' ">
+                  <p>You are going from <br>
+                    <span class="text-bold">{{input.fromStation.Station}}</span> <br>
+                    to <span class="text-bold">{{input.toStation.Station}}</span> <br>
+                    to arrive at <span class="text-bold">{{input.time}}</span>. </p>
+                  <p class="leaveMessage"><span class="text-bold">{{ dashboardMessage }}</span></p>
+                </div>
       </ion-item>
 
       <ion-item id="travelPlan" class="item-remove-animate item-icon-right" type="item-text-wrap" href="#/tab/travelPlan">
-        <h2> Travel plan </h2>
+        <p>Create a new journey</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
 
-      <ion-item id="weather" class="item-remove-animate item-icon-right" type="item-text-wrap" href="#/tab/weather">
-        <h2> Current Weather </h2>
+      <ion-item id="weather" class="item-remove-animate" type="item-text-wrap">
+        <p> Current weather </p>
         <ul id='currentWeather' ng-controller='WeatherCtrl as controller'>
          <li>London:</li>
-         <li id='weatherDesc'>{{ description }}</li>
+         <li id='weatherDesc'>{{ description | capitalize:true }}</li>
          <li id='weatherTemp'>{{ temperature }}&#8451;</li>
        </ul>
-        <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
 
     </ion-list>

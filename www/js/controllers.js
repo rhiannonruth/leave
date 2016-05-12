@@ -6,8 +6,8 @@ angular.module('smartAlarm.controllers', [])
   }, 2000);
 })
 
-.controller('DashboardCtrl', function($scope) {
-
+.controller('DashboardCtrl', function($scope, $state, journeyFactory) {
+  $scope.input = journeyFactory;
 })
 
 .controller('WeatherCtrl', function($scope, CurrentWeather) {
@@ -17,19 +17,22 @@ angular.module('smartAlarm.controllers', [])
   });
 })
 
-.controller('TravelPlanCtrl', function ($scope, $cordovaLocalNotification, Notification, StationList, PostTrip, GetTrip, $http, $rootScope) {
+.controller('TravelPlanCtrl', function ($scope, $state, $cordovaLocalNotification, Notification, StationList, journeyFactory, PostTrip, GetTrip, $http, $rootScope) {
+
+  $scope.input = journeyFactory;
 
   StationList.success(function(data) {
     $scope.stationNames = data;
   });
 
-  $scope.getTime = function(trip) {
-    var newTime     = trip.time.toString().substr(16, 5);
+  $scope.getTime = function() {
+
+    journeyFactory.time = journeyFactory.time.toString().substr(16, 5);
 
     var tripDetails = {'alarm':
-                        { 'from_station': trip.fromStation.ICS_Code,
-                          'to_station'  : trip.toStation.ICS_Code,
-                          'arrival_time': newTime,
+                        { 'from_station': journeyFactory.fromStation.ICS_Code,
+                          'to_station': journeyFactory.toStation.ICS_Code,
+                          'arrival_time': journeyFactory.time,
                           'alarm_offset': '0'
                         }
                       };

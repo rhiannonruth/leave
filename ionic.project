@@ -16,7 +16,7 @@
     },
     {
       "path": "/api/weather",
-      "proxyUrl": "https://makers-alarm.herokuapp.com/weather_api"
+      "proxyUrl": "https://makers-alarm.herokuapp.com/weathers"
     },
     {
       "path": "/alarms",

@@ -1,64 +1,70 @@
 <ion-view view-title="Travel Plan">
   <ion-content class="scroll-content ionic-scroll has-header has-tabs">
     <div id="travelPlan" class="scroll" style="transform: translate3d(0px, 34px, 0px) scale(1);">
-      <div id="alarmSetText" class="item text-center">
-        {{ alarmMessage }}
+      <div id="alarmSetText" class="text-center">
+        <h4>{{ alarmMessage }}</h4>
       </div>
-      <div id="fromStation" class=" item-text-wrap">
-        <div class="item">
-          <button class="button button-positive button-block"
-                modal-select=""
-                ng-model="trip.fromStation"
-                options="stationNames"
-                has-search="true">
-                Where will you start?
-                <div class="option">
-                  <h2>{{option.Station | capitalize: true}}</h2>
-                  <p>{{option.ISC_Code}}</p>
-                </div>
-          </button>
-          <div class="text-center">
-            {{trip.fromStation.Station | capitalize: true}}
-          </div>
-        </div>
-      </div>
-      <div id="toStation" class="item-text-wrap">
-        <div class="item">
-          <button class="button button-positive button-block"
+
+      <div id="travelDetails">
+        <div id="fromStation" class="item-text-wrap">
+          <div class="item item-icon-right">
+            <button class="button button-block"
                   modal-select=""
-                  ng-model="trip.toStation"
+                  ng-model="input.fromStation"
                   options="stationNames"
                   has-search="true">
-                    Where are you going?
+                    <p>Choose your departure station</p>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
                   <div class="option">
                     <h2>{{option.Station | capitalize: true}}</h2>
                     <p>{{option.ISC_Code}}</p>
                   </div>
-          </button>
-          <div class="text-center">
-            {{trip.toStation.Station | capitalize: true}}
+            </button>
+            <div>
+              {{input.fromStation.Station | capitalize: true }}
+            </div>
+          </div>
+        </div>
+        <div id="toStation" class="item-text-wrap">
+          <div class="item item-icon-right">
+            <button class="button button-block"
+                    modal-select=""
+                    ng-model="input.toStation"
+                    options="stationNames"
+                    has-search="true">
+                      <p>Where are you going?</p>
+                      <i class="icon ion-chevron-right icon-accessory"></i>
+                    <div class="option">
+                      <h2>{{option.Station | capitalize: true}}</h2>
+                      <p>{{option.ISC_Code}}</p>
+                    </div>
+            </button>
+            <div>
+              {{input.toStation.Station | capitalize: true}}
+            </div>
+          </div>
+        </div>
+        <div class="item-text-wrap">
+          <div class="item item-icon-right">
+            <button id="arrivalTime"
+                    class="button button-block overflowShow"
+                    ion-datetime-picker time
+                    ng-model="input.time">
+                    <p>What time do you need to be there?</p>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+            </button>
+            <div>
+              {{input.time}}
+            </div>
           </div>
         </div>
       </div>
-      <div class="item item-body padding-vertical">
-        <div class="option">
-          <button id="arrivalTime"
-                  class="button button-block button-positive overflowShow"
-                  ion-datetime-picker time
-                  ng-model="trip.time">
-                    What time do you need to be there?
-          </button>
-          <div class="text-center">
-            {{trip.time}}
-          </div>
-        </div>
-      </div>
-      <div class="item item-body padding-vertical">
+      <div class=" item-body padding-vertical">
         <div class="option">
           <button id="getTrip"
-                  class="button button-block button-energized overflowShow"
-                  ng-click="getTime(trip)">
-                    Get trip
+                  class="button button-block button-positive overflowShow"
+                  ng-click="getTime(Journey)">
+                    Get time to Leave.
           </button>
         </div>
       </div>

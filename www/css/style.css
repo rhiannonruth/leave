@@ -1,6 +1,22 @@
 /* Empty. Add your own CSS if you like */
+body, .button, h1, h2, h3, h4 {
+  font-family: 'Raleway', sans-serif;
+}
+
+ul {
+  padding-top: 8px;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
 .hidden {
   visibility: hidden;
+}
+
+p#currentAlarm {
+  font-weight: 700;
 }
 
 #landing {
@@ -11,4 +27,52 @@
   color: #8b0000;
   font-family: 'Permanent Marker', cursive;
   font-size: 60px;
+  background-color: #f8f8f8;
 }
+
+.fade {
+  animation-delay:1.4s;
+  -moz-animation-delay:1.4s;
+  -webkit-animation-delay:1.4s;
+}
+
+p.leaveMessage {
+  font-size: 18px;
+  color: #8b0000;
+  padding-top: 10px;
+}
+
+#travelDetails div.item-icon-right {
+  padding-right: 5px;
+}
+
+#travelDetails .button {
+  text-align: left;
+  background-color: #ffffff;
+}
+
+#travelDetails .button.button-block {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.button.button-positive,
+.button.button-positive.activated {
+  background-color: #8b0000;
+}
+
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active,
+ion-tabs.tabs-color-active-positive .tab-item.active,
+ion-tabs.tabs-color-active-positive .tab-item.activated,
+.button.button-positive.button-clear {
+  color: #8b0000;
+}
+
+#travelDetails .ng-binding {
+  padding-left: 12px;
+}
+
+#alarmSetText p {
+  margin-bottom: 10px;
+}
+​
