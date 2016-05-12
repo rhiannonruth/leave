@@ -48,7 +48,7 @@ angular.module('smartAlarm.services', [])
 })
 
 .service('CurrentWeather', function($http) {
-  return $http.get('https://makers-alarm.herokuapp.com/weather_api');
+  return $http.get('https://makers-alarm.herokuapp.com/weathers');
 })
 
 .service('PostTrip', function($http) {
