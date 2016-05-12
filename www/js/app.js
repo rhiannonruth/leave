@@ -1,5 +1,9 @@
 angular.module('smartAlarm', ['ionic', 'smartAlarm.controllers', 'smartAlarm.services', 'ngResource', 'ion-datetime-picker', 'ionic-modal-select', 'ngCordova'])
 
+.constant('ApiEndpoint', {
+  url: 'http://localhost:8100/api'
+})
+
 .filter('capitalize', function() {
   return function(input, all) {
     var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;

@@ -5,17 +5,17 @@ angular.module('smartAlarm.services', [])
   return alarm;
 })
 
-.factory('UserSession', function($resource) {
-  return $resource("/api/user");
+.factory('UserSession', function($resource, ApiEndpoint) {
+  return $resource(ApiEndpoint.url + "/user");
 })
 
-.factory('WeatherApi', function($resourcce) {
-  return $resource("weather_api");
+.factory('WeatherApi', function($resource, ApiEndpoint) {
+  return $resource(ApiEndpoint.url + "/weathers");
 })
 
-.factory('SignUp', function($resource) {
+.factory('SignUp', function($resource, ApiEndpoint) {
   return function (details) {
-    return $resource("/api/user/signup", [{"signUp":{method: "post"}, "params": details }]);
+    return $resource(ApiEndpoint.url + "/api/user/signup", [{"signUp":{method: "post"}, "params": details }]);
   };
 })
 
@@ -43,30 +43,30 @@ angular.module('smartAlarm.services', [])
   return scheduleNotification;
 })
 
-.service('StationList', function($http) {
-  return $http.get('https://makers-alarm.herokuapp.com/stations');
+.service('StationList', function($http, ApiEndpoint) {
+  return $http.get(ApiEndpoint.url + '/stations');
 })
 
-.service('CurrentWeather', function($http) {
-  return $http.get('https://makers-alarm.herokuapp.com/weathers');
+.service('CurrentWeather', function($http, ApiEndpoint) {
+  return $http.get(ApiEndpoint.url + '/weathers');
 })
 
-.service('PostTrip', function($http) {
+.service('PostTrip', function($http, ApiEndpoint) {
   return function (tripDetails) {
       return $http({
         method: 'POST',
-        url: 'https://makers-alarm.herokuapp.com/alarms',
+        url: ApiEndpoint.url + '/alarms',
         contentType: 'application/json',
         data: tripDetails
       });
   };
 })
 
-.service('GetTrip', function($http) {
+.service('GetTrip', function($http, ApiEndpoint) {
   return function (tripDetails) {
       return $http({
         method: 'GET',
-        url: 'https://makers-alarm.herokuapp.com/alarms',
+        url: ApiEndpoint.url + '/alarms',
         contentType: 'application/json'
       });
   };
