@@ -1,5 +1,11 @@
 angular.module('smartAlarm.controllers', [])
 
+.controller('LandingCtrl', function($scope, $state, $timeout) {
+  $timeout(function() {
+    $state.go('tab.dashboard');
+  }, 2000);
+})
+
 .controller('DashboardCtrl', function($scope) {
 
 })
@@ -45,11 +51,5 @@ angular.module('smartAlarm.controllers', [])
                     'password': password };
     new SignUp(details);
     $location.path('/tab/login');
-  };
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
   };
 });

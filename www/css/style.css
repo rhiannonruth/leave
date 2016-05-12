@@ -2,3 +2,13 @@
 .hidden {
   visibility: hidden;
 }
+
+#landing {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8b0000;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 60px;
+}
