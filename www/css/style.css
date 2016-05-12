@@ -3,6 +3,14 @@ body, .button, h1, h2, h3, h4 {
   font-family: 'Raleway', sans-serif;
 }
 
+ul {
+  padding-top: 8px;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
 .hidden {
   visibility: hidden;
 }
@@ -20,6 +28,18 @@ p#currentAlarm {
   font-family: 'Permanent Marker', cursive;
   font-size: 60px;
   background-color: #f8f8f8;
+}
+
+.fade {
+  animation-delay:1.4s;
+  -moz-animation-delay:1.4s;
+  -webkit-animation-delay:1.4s;
+}
+
+p.leaveMessage {
+  font-size: 18px;
+  color: #8b0000;
+  padding-top: 10px;
 }
 
 #travelDetails div.item-icon-right {
@@ -55,3 +75,4 @@ ion-tabs.tabs-color-active-positive .tab-item.activated,
 #alarmSetText p {
   margin-bottom: 10px;
 }
+​

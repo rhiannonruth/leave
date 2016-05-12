@@ -3,7 +3,7 @@ angular.module('smartAlarm.controllers', [])
 .controller('LandingCtrl', function($scope, $state, $timeout) {
   $timeout(function() {
     $state.go('tab.dashboard');
-  }, 20000);
+  }, 2000);
 })
 
 .controller('DashboardCtrl', function($scope, $state, journeyFactory) {
