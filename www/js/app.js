@@ -13,6 +13,12 @@ angular.module('smartAlarm', ['ionic', 'smartAlarm.controllers', 'smartAlarm.ser
 
   $stateProvider
 
+  .state('landing', {
+    url: '/landing',
+    templateUrl: 'templates/landing.html',
+    controller: 'LandingCtrl'
+  })
+
   .state('tab', {
     url: '/tab',
     abstract: true,
@@ -76,7 +82,7 @@ angular.module('smartAlarm', ['ionic', 'smartAlarm.controllers', 'smartAlarm.ser
     }
   });
 
-  $urlRouterProvider.otherwise('/tab/dashboard');
+  $urlRouterProvider.otherwise('/landing');
 
 })
 

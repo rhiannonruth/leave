@@ -4,23 +4,23 @@
   "proxies": [
     {
       "path": "/api/user",
-      "proxyUrl": "http://localhost:3000/users/sign_in.json"
+      "proxyUrl": "https://makers-alarm.herokuapp.com/users/sign_in.json"
     },
     {
       "path": "/stations",
-      "proxyUrl": "http://localhost:3000/stations"
+      "proxyUrl": "https://makers-alarm.herokuapp.com/stations"
     },
     {
       "path": "/api/user/signup",
-      "proxyUrl": "http://localhost:3000/users/sign_up"
+      "proxyUrl": "https://makers-alarm.herokuapp.com/users/sign_up"
     },
     {
       "path": "/api/weather",
-      "proxyUrl": "http://localhost:3000/weather_api"
+      "proxyUrl": "https://makers-alarm.herokuapp.com/weathers"
     },
     {
       "path": "/alarms",
-      "proxyUrl": "http://localhost:3000/alarms"
+      "proxyUrl": "https://makers-alarm.herokuapp.com/alarms"
     }
   ]
 }

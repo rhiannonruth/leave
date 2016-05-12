@@ -1,7 +1,13 @@
 angular.module('smartAlarm.controllers', [])
 
-.controller('DashboardCtrl', function($scope) {
+.controller('LandingCtrl', function($scope, $state, $timeout) {
+  $timeout(function() {
+    $state.go('tab.dashboard');
+  }, 2000);
+})
 
+.controller('DashboardCtrl', function($scope, $state, journeyFactory) {
+  $scope.input = journeyFactory;
 })
 
 .controller('WeatherCtrl', function($scope, CurrentWeather) {
@@ -11,24 +17,26 @@ angular.module('smartAlarm.controllers', [])
   });
 })
 
-.controller('TravelPlanCtrl', function ($scope, StationList, GetTrip, $http, $rootScope) {
+.controller('TravelPlanCtrl', function ($scope, $state, StationList, GetTrip, journeyFactory, $http, $rootScope) {
+
+  $scope.input = journeyFactory;
 
   StationList.success(function(data) {
     $scope.stationNames = data;
   });
 
+  $scope.getTime = function() {
 
-  $scope.getTime = function(trip) {
-    var newTime     = trip.time.toString().substr(16, 5);
+    journeyFactory.time = journeyFactory.time.toString().substr(16, 5);
 
     var tripDetails = {'alarm':
-                      { 'from_station': trip.fromStation.ICS_Code,
-                        'to_station': trip.toStation.ICS_Code,
-                        'arrival_time': newTime,
+                      { 'from_station': journeyFactory.fromStation.ICS_Code,
+                        'to_station': journeyFactory.toStation.ICS_Code,
+                        'arrival_time': journeyFactory.time,
                         'alarm_offset': '0'
                       }
                     };
-
+                    console.log(tripDetails);
     GetTrip(tripDetails).success(function(data) {
       return $http({
         method: 'GET',
@@ -50,13 +58,5 @@ angular.module('smartAlarm.controllers', [])
                     'password': password };
     new SignUp(details);
     $location.path('/tab/login');
-  };
-
-
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
   };
 });
