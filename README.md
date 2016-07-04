@@ -1,4 +1,4 @@
-# *LEAVE*
+# LEAVE.
 LEAVE. is a mobile app that notifies a user when to leave based on their desired arrival time and live travel and weather updates. A user selects start and end stations, then a call is made to the API (see [LEAVE API](https://github.com/rhiannonruth/leave-api)) and a notification is automatically created on their phone.  
 
 ## Technologies
